@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AnimeHub Guyana Anniversary</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Viewport meta for responsive design --> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg-hero"></div>
+<div class="bg-overlay"></div>
+ 
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#welcome">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" class="logo" alt="AnimeHub Logo">
+        <span class="ms-2 heading-font">AnimeHub</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#welcome">HOME</a></li>
+          <li class="nav-item"><a class="nav-link" href="#packages">ANNIVERSARY SALE</a></li>
+          <li class="nav-item"><a class="nav-link" href="#order">ORDER</a></li>
+          <li class="nav-item"><a class="nav-link" href="#store">STORE HOURS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#corporate">CORPORATE INFO</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Welcome -->
+  <section id="welcome" class="container section-spacer text-center text-white">
+    <h1 class="heading-font">Welcome to AnimeHub Guyana!</h1>
+    <div class="d-flex justify-content-center text-center mb-4">
+    
+  <p class="lead">
+    Your Gateway to Authentic Anime & Comic Book Culture,<br>
+    right here in Berbice. Whether you're a Seasoned Otaku<br>
+    or just Discovering the World of Manga, we’re here to bring the Magic to You.
+  </p>
+</div>
+
+    <h2 class="highlight-heading">
+  Celebrate Our One-Year Anniversary with Exclusive<br>
+   Anime & Comic Book Packages. Fast Delivery Worldwide!
+    </h2>
+    </section>
+    
+ <!-- Packages -->
+<section id="packages" class="container section-spacer text-white">
+  <h2 class="heading-font text-center mb-4">Anniversary Sale</h2>
+  <div class="row">
+    {% for package in packages %}
+    <div class="col-md-4 mb-4">
+      <div class="card package-card h-100">
+        <img src="{{ url_for('static', filename='img/' + package.img) }}" 
+             class="card-img-top package-img" 
+             alt="{{ package.name }}">
+        <div class="card-body text-center">
+          <!-- Package Title -->
+          <h3 class="package-title">{{ package.name }}</h3>
+          <!-- Package Description -->
+          <p class="package-description">{{ package.desc }}</p>
+          <!-- Package Price -->
+          <p class="price">{{ package.price }} GYD</p>
+          <!-- Select Button -->
+          <button class="btn btn-glow w-100" 
+                  onclick="selectPackage('{{ package.name }}', {{ package.price }}, this)">
+            Select
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+  <!-- Flash message -->
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert alert-success text-center">
+      {{ messages[0] }}
+    </div>
+  {% endif %}
+{% endwith %}
+
+ <!-- Order Form -->
+<section id="order" class="container p-4 rounded">
+  <h2 class="heading-font">Place Your Order</h2>
+  <form method="POST" action="{{ url_for('checkout') }}">
+    <!-- Hidden inputs for package -->
+    <input type="hidden" name="package_name" id="package_name_input" required>
+    <input type="hidden" name="package_price" id="package_price_input" required>
+    
+
+    <!-- Customer details -->
+    <div class="section-centered">
+      <label>Name</label>
+      <input type="text" name="customer_name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Delivery Address</label>
+      <textarea name="delivery_address" class="form-control" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label>Region</label>
+      <select name="region" id="regionSelect" class="form-select" required>
+        <option disabled selected>Select region</option>
+        <option>North America</option>
+        <option>Europe</option>
+        <option>Asia</option>
+        <option>Guyana</option>
+      </select>
+    </div>
+    
+ 
+    <!-- Hidden inputs for shipping + total ---
+    <input type="hidden" name="shipping_cost" id="shipping_cost_input" required>
+    <input type="hidden" name="total_price" id="total_price_input" required>
+
+    <!-- Order summary -->
+    <div class="alert alert-info">
+      <strong>Package:</strong> <span id="selectedPackageName">None</span><br>
+      <strong>Price:</strong> <span id="selectedPackagePrice">0</span> GYD<br>
+      <strong>Shipping:</strong> <span id="shippingCost">0</span> GYD<br>
+      <strong>Total:</strong> <span id="totalPrice">0</span> GYD
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-glow mt-3">
+      Place Order
+    </button>
+    
+    <!-- View Orders button -->
+    <a href="{{ url_for('view_orders') }}" class="btn btn-glow mt-3">
+     View Orders
+  </a>
+  
+  {% if order %}
+<div class="order-confirmation">
+  <h2 class="order-heading">Order Successfully Placed</h2>
+  <p class="order-text">Order ID: {{ order.id }}</p>
+  <p class="order-text">Name: {{ order.name }}</p>
+  <p class="order-text">Address: {{ order.address }}</p>
+  <p class="order-text">Region: {{ order.region }}</p>
+  <p class="order-text">Package: {{ order.package }}</p>
+  <p class="order-price">Price: {{ order.price }} GYD</p>
+  <p class="order-price">Shipping: {{ order.shipping }} GYD</p>
+  <p class="order-total">Total: {{ order.total }} GYD</p>
+  <p class="order-text">Placed at: {{ order.timestamp }}</p>
+  <p class="order-text">Thank you for shopping with AnimeHub Guyana!</p>
+
+  <div class="order-actions">
+    <button class="btn btn-cancel">Cancel Order</button>
+    <a href="/" class="btn btn-return">RETURN TO HOME</a>
+  </div>
+</div>
+{% endif %}
+
+<script>
+  function cancelOrder() {
+    // Reset the order summary fields
+    document.getElementById("selectedPackageName").textContent = "None";
+    document.getElementById("selectedPackagePrice").textContent = "0";
+    document.getElementById("shippingCost").textContent = "0";
+    document.getElementById("totalPrice").textContent = "0";
+
+    alert("Order has been cancelled.");
+  }
+</script>
+
+  <!-- Store Info Section -->
+ <section id="store" class="container section-spacer spacing-store text-white"> 
+  <h2 class="heading-font">Store Hours</h2>
+  <div class="store">
+    <p>Monday – Friday: <strong>10:00 AM – 8:00 PM</strong></p>
+    <p>Saturday: <strong>10:00 AM – 6:00 PM</strong></p>
+    <p>Sunday: <strong>Closed</strong></p>
+  </div>
+ </section>
+
+  <!-- Corporate Info -->
+  <section id="corporate" class="container section-spacer spacing-corporate text-white">
+    <h2 class="heading-font">Corporate Information</h2>
+    <p>AnimeHub Guyana is a locally owned business based in Berbice.<br>
+    We bring Authentic Anime and Comic Book Culture to Our Community & Beyond.<br>
+    Our Mission is to Provide Curated Packages, Limited Edition Prints,<br> 
+    & Anniversary Deals that Celebrate the Vibrant World of Anime & Manga.<br>
+    We pride Ourselves on Affordable Prices, Reliable Delivery, & a Customer-First Approach.</p>
+  </section>
+
+  <!-- Contact Info -->
+<section id="contact" class="container section-spacer spacing-contact text-white" style="text-align: center;">
+  <h2 class="heading-font">Contact Us</h2>
+
+  <p>
+    <strong>Email:</strong>
+    <a href="mailto:info@animehubgy.com" target="_blank" class="text-white">
+      info@animehubgy.com
+    </a>
+  </p>
+
+  <p>
+    <strong>Phone:</strong> +592-674-5403
+  </p>
+
+  <p>
+    <strong>Address:</strong> Lot 12 Main Street, New Amsterdam, Berbice, Guyana.
+  </p>
+  <div class="social-heading">Follow Us on Social Media</div>
+  <div class="contact-icons">
+    <a href="https://www.facebook.com/animehub_gy" target="_blank">
+      <img src="{{ url_for('static', filename='img/facebook.png') }}" alt="Facebook" class="social-icon">
+    </a>
+    <a href="https://www.tiktok.com/@animehub_gy" target="_blank">
+      <img src="{{ url_for('static', filename='img/tiktok.png') }}" alt="TikTok" class="social-icon">
+    </a>
+    <a href="https://www.instagram.com/animehub_gy" target="_blank">
+      <img src="{{ url_for('static', filename='img/instagram.jpeg') }}" alt="Instagram" class="social-icon">
+    </a>
+    <a href="https://wa.me/5926745403" target="_blank">
+      <img src="{{ url_for('static', filename='img/whatsapp.jpeg') }}" alt="WhatsApp" class="social-icon">
+    </a>
+  </div>
+</section>
+
+
+  
+  <!-- Footer -->
+  <footer>
+  <h2 class="heading-font">Thank You for Visiting AnimeHub Guyana!</h2>
+</footer>
+
+<script src="{{ url_for('static', filename='Js/main.js') }}"></script>
+
+</body>
+</html>
+

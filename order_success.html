@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Success - AnimeHub Guyana</title>
+  <!-- Load Bootstrap first -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <!-- Then your custom styles so they override Bootstrap -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="bg-hero"></div>
+  <div class="bg-overlay"></div>
+
+  <div class="container text-center section-spacer">
+    <!-- Heading -->
+    <h2 class="heading-font">Order Successfully Placed</h2>
+
+    <!-- Order details card -->
+    <div class="card package-card mt-4 p-4">
+      <p><strong>Order ID:</strong> {{ order[0] }}</p>
+      <p><strong>Name:</strong> {{ order[1] }}</p>
+      <p><strong>Address:</strong> {{ order[2] }}</p>
+      <p><strong>Region:</strong> {{ order[3] }}</p>
+      <p><strong>Package:</strong> {{ order[4] }}</p>
+      <p class="order-price"><strong>Price:</strong> {{ order[5] }} GYD</p>
+      <p class="order-price"><strong>Shipping:</strong> {{ order[6] }} GYD</p>
+      <p class="order-total"><strong>Total:</strong> {{ order[7] }} GYD</p>
+      <p><em>Placed at:</em> {{ order[8] }}</p>
+    </div>
+
+ <div class="order-actions d-flex justify-content-center gap-3 mt-4">
+  <!-- Cancel Order button (unchanged) -->
+  <form method="POST" action="{{ url_for('cancel_order', order_id=order[0]) }}">
+    <button type="submit" class="btn btn-danger">Cancel Order</button>
+  </form>
+
+  <!-- Return to Home button styled to match -->
+  <a href="{{ url_for('index') }}" class="btn btn-danger">
+    Return to Home
+  </a>
+</div>
+
+
+  <footer>
+    <p><strong>Thank you for shopping with AnimeHub Guyana</strong></p>
+  </footer>
+</body>
+</html>
+

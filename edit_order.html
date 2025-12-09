@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Order</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="container p-4">
+    <h2 class="heading-font">Edit Order #{{ order['id'] }}</h2>
+    <form method="POST">
+      <div class="mb-3">
+        <label>Delivery Address</label>
+        <textarea name="delivery_address" class="form-control">{{ order['delivery_address'] }}</textarea>
+      </div>
+      <div class="mb-3">
+        <label>Region</label>
+        <input type="text" name="region" class="form-control" value="{{ order['region'] }}">
+      </div>
+      <div class="mb-3">
+        <label>Package</label>
+        <select name="package_name" class="form-select">
+          {% for pkg in packages %}
+            <option value="{{ pkg.name }}" {% if pkg.name == order['package_name'] %}selected{% endif %}>
+              {{ pkg.name }} ({{ pkg.price }} GYD)
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-glow">Save Changes</button>
+    </form>
+  </div>
+</body>
+</html>
+

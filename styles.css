@@ -1,0 +1,744 @@
+/* Base body styling */
+body {
+  font-family: Verdana, Arial, 'Noto Sans JP', sans-serif;
+  color: #fff;
+  background-color: #0c0c0f;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Headings */
+.heading-font {
+  font-family: 'Bangers', sans-serif;
+  font-size: 4rem;
+  letter-spacing: 2px;
+  color: #000000 !important; /* black text */
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 
+    0 0 5px #ff3399,
+    0 0 10px #ff3399,
+    0 0 20px #ff3399 !important; /* pink glow */
+}
+
+.lead {
+  font-family: 'Arial', sans-serif; /* or 'Verdana', or any font you prefer */
+  font-size: 1.8rem;                    /* adjust size here */
+  line-height: 1.8;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.5px;
+  text-align: center;                   /* optional: center-align for homepage intro */
+  margin-bottom: 20px;
+  
+  /* Glow effect */
+   text-shadow: 
+    0 0 5px black,
+    0 0 10px black,
+    0 0 20px black;
+}
+
+.highlight-heading {
+  font-family: 'Arial', sans-serif;  /* or your chosen font */
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-shadow: 
+    0 0 8px #99FFFF,
+    0 0 12px #99FFFF,
+    0 0 20px #99FFFF;
+}
+
+ /*Anniversary Heading*/
+ .heading-sale {
+  font-family: 'Bangers', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: black !important;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-shadow: 
+    0 0 5px #ff3399,
+    0 0 10px #ff3399,
+    0 0 20px #ff3399 !important; /* pink glow */
+}
+
+  /* Glow effect */
+  text-shadow: 
+    0 0 8px #00ccff,   /* bright cyan glow */
+    0 0 12px #3399ff,  /* medium blue glow */
+    0 0 20px #66ffff;  /* soft light blue glow */
+}
+
+/* Optional: description text under packages */
+.package-description {
+  font-family: 'Open Sans', sans-serif; /* clean readable font */
+  font-size: 1.2rem;                    /* adjust size */
+  line-height: 1.6;                     /* spacing between lines */
+  color: #ffffff;                       /* white text */
+  text-align: center;                   /* center align */
+  margin-bottom: 10px;
+}
+
+/* Logo */
+.logo {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+/* Navbar */
+.navbar {
+  backdrop-filter: blur(6px);
+  background-color: rgba(0,0,0,0.85) !important;
+  padding: 4px 0;
+  min-height: 30px;
+}
+
+/* Navigation links */
+.nav-link {
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1.2rem; /*Increase this value to make buttons bigger */
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #87ceeb !important;
+  text-decoration: none;
+}
+
+.bg-hero {
+  position: fixed;
+  inset: 0;
+  background: url('/static/img/bg.jpg') center/cover no-repeat;
+  z-index: -1; /* keep it behind content */
+}
+
+.bg-overlay {
+  display: none; /* disable overlay completely */
+}
+
+/* Welcome section spacing */
+.spacing-welcome {
+  padding-top: 110px;
+  padding-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+/* Highlight text spacing (if separate) */
+.spacing-highlight {
+  padding-top: 80px;
+  padding-bottom: 60px;
+  margin-bottom: 80px;
+}
+
+/* Anniversary Sale section spacing */
+.spacing-anniversary {
+  padding-top: 80px;
+  padding-bottom: 60px;
+  margin-bottom: 80px;
+}
+
+/* Order section spacing */
+.spacing-order {
+  padding-top: 50px;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+
+/* Store Hours section spacing */
+.spacing-store {
+  padding-top: 50px;       /* balanced top padding */
+  padding-bottom: 40px;    /* balanced bottom padding */
+  margin-bottom: 40px;     /* reduced gap before next section */
+}
+
+/* Corporate Info section spacing */
+.spacing-corporate {
+  padding-top: 50px;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+
+/* Contact section spacing */
+.spacing-contact {
+  padding-top: 50px;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+
+#welcome {
+  background: none !important;
+  border-radius: 8px;
+  padding: 200px 20px 40px; /*Increased top padding */
+  margin-bottom: 20px;
+}
+.heading-sale {
+  font-family: 'Bangers', sans-serif;
+  font-size: 3rem;
+  color: #ff3366;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #ff0033, 0 0 20px #ff6600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Package cards */
+.card.package-card {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+.package-card img {
+  width: 100%;
+  max-width: 180px;         /* consistent width */
+  height: 180px;            /* fixed height */
+  object-fit: cover;        /* crop to fill evenly */
+  margin: 0 auto 10px;
+  display: block;
+}
+
+.card.package-card {
+  min-height: 400px; /* adjust based on content */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card.package-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;        /* adjust based on content */
+  padding: 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  text-align: center;
+}
+.card.package-card .btn-glow {
+  margin-top: auto;
+  align-self: center;
+  width: 80%;               /* consistent width */
+}
+
+.package-description {
+  font-size: 1.2rem;       /* keep size adjustable */
+  line-height: 1.5;
+  color: #ffffff;          /* pure white */
+  font-weight: bold;       /* bold text */
+  margin-top: 8px;
+}
+
+.price {
+  font-size: 1.3rem;       /* slightly larger for emphasis */
+  font-weight: bold;       /* bold text */
+  color: #ffff00;          /* bright yellow*/
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+
+/* Hover effect */
+.card.package-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #333;
+}
+
+/* Package title */
+.package-title {
+  font-family: 'Bangers', sans-serif;
+  font-size: 1.9rem;           /*Adjust this for title size */
+  color: black;
+  font-weight: bold;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+   /* Glow effect */
+  text-shadow: 
+    0 0 5px #ff3399,
+    0 0 10px #ff3399,
+    0 0 20px #ff3399 !important; /* pink glow */
+}
+
+/* Package description */
+.package-description {
+  font-family: Verdana, Arial, 'Noto Sans JP', sans-serif;
+  font-size: 1.5rem;           /*Adjust this for description size */
+  color: black;
+  margin-bottom: 8px;
+}
+
+/* Hover effect */
+.package-description:hover,
+.price:hover {
+  color: #000000 !important;   /* force black text */
+  text-shadow: 
+    0 0 8px #00ccff,
+    0 0 12px #00ccff,
+    0 0 20px #00ccff;          /* optional hover glow */
+}
+
+/* Package price */
+.card.package-card .price {
+  font-family: Verdana, Arial, 'Noto Sans JP', sans-serif;
+  font-size: 2rem;         /*Adjust this for price size */
+  font-weight: 700;
+  color: #ffcc00;
+  margin-top: 6px;
+}
+
+/* Selected package highlight */
+.selected-package {
+  border: 2px solid #ff3366;
+}
+
+/* Action buttons */
+.btn-glow {
+  background-color: #ff3399;       /* button color */
+  color: #fff;                       /* text color */
+  border: none;
+  font-family: 'Open Sans', sans-serif; /* adjustable font */
+  font-size: 1.2rem;                 /* adjustable text size */
+  font-weight: 600;                  /* bold text */
+  padding: 12px 28px;                /* adjustable button size */
+  border-radius: 8px;                /* rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.btn-glow:hover {
+  background-color: #4169e1;         /* hover color */
+  transform: scale(1.05);            /* hover growth */
+}
+/* View Order button */
+.btn-view {
+  background-color: #ff3399;        /* distinct color for View Order */
+  color: #fff;                       /* white text */
+  border: none;
+  font-family: 'Open Sans', sans-serif; /* adjustable font */
+  font-size: 1.2rem;                 /* text size */
+  font-weight: 600;                  /* bold text */
+  padding: 12px 28px;                /* button size */
+  border-radius: 8px;                /* rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.btn-view:hover {
+  background-color: #4169e1;  /* lighter hover color */
+  transform: scale(1.05);            /* subtle growth on hover */
+}
+
+/* Order form panel */
+#order {
+  background: transparent; /* no white panel */
+  color: #fff;             /* text stays readable on dark background */
+  padding: 20px;
+}
+
+/* Glowing yellow input boxes */
+#order input,
+#order textarea,
+#order select {
+  background-color: #0c0c0f; /* dark base */
+  border: 2px solid #4169e1; /* golden border */
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 0 8px #ffd633; /* mystical glow */
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+#order input:focus,
+#order textarea:focus,
+#order select:focus {
+  outline: none;
+  border-color: #ffcc00;
+  box-shadow: 0 0 12px #ffcc00; /* brighter glow on focus */
+}
+
+/* Place Order form inputs */
+#order input[type="text"],
+#order input[type="email"],
+#order input[type="tel"],
+#order select,
+#order textarea,
+#order label {
+  font-size: 1.5rem;              /* increase text size */
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  color: #fff;                    /* white text for inputs */
+}
+
+
+/* Help text under input */
+.form-text {
+  font-size: 0.9rem;
+  color: #ffffff;                      /* white help text */
+  opacity: 0.8;                        /* softer for readability */
+}
+
+/* Focus effect */
+#email:focus {
+  outline: none;
+  border-color: #ffd700;               /* golden glow border on focus */
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6); /* subtle glow */
+}
+
+/* Glowing effect for Bootstrap alert-info */
+.alert-info {
+  box-shadow: 0 0 10px rgba(173, 216, 230, 0.6), 0 0 20px rgba(173, 216, 230, 0.4);
+  border: 1px solid rgba(173, 216, 230, 0.5);
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+/* Success alert */
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+
+/* Return Home Button */
+.btn-return {
+  display: inline-block;
+  background-color: #ff3399;       /* pink background */
+  border-radius: 8px;
+  padding: 12px 24px;
+  text-decoration: none;
+  box-shadow: 0 0 12px #ff3399;    /* pink glow */
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000000 !important;       /* black text */
+}
+
+.btn-return:hover {
+  background-color: #4169e1;       /* lighter pink on hover */
+  color: #000000 !important;       /* keep black text */
+}
+
+
+/* Store Hours Info section */
+#store p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.8rem !important; /* bigger font */
+  line-height: 1.7;
+  font-weight: 600;
+  color: white;                 /* white text */
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  text-align: center; 
+  /* Glow effect (optional) */
+   text-shadow: 
+    0 0 5px black,
+    0 0 10px black,
+    0 0 20px black;
+}
+
+
+/* Corporate Info section */
+#corporate p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.7;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.5px;
+  text-align: center; 
+   /* Glow effect */
+  text-shadow: 
+    0 0 5px black,
+    0 0 10px black,
+    0 0 20px black;
+}
+/* Contact Info section */
+#contact p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.7;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.5px;
+  text-align: center; 
+   /* Glow effect */
+   text-shadow: 
+    0 0 5px black,
+    0 0 10px black,
+    0 0 20px black;
+}
+
+#contact a {
+  text-decoration: none;   /* default: no underline */
+}
+
+}
+#contact a.underline-link {
+  text-decoration: underline !important;
+}
+
+/* Social heading */
+.social-heading {
+  font-family: 'Bangers';   /* or any font you prefer */
+  font-size: 2rem;                 /* adjust freely */
+  color: black;                    /* text color */
+  text-align: center;
+  margin-top: 15px;                  /* tighter spacing above */
+  margin-bottom: 10px;               /* tighter spacing below */
+  text-shadow: 0 0 6px #ff3399;      /* glowing effect */
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+/* Social icons row */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;               /* even spacing between icons */
+  margin-top: 5px;         /* minimal spacing from heading */
+}
+
+/* Social icons */
+.social-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px #ff3399;
+}
+
+
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* equal spacing between icons */
+  flex-wrap: wrap; /* responsive on smaller screens */
+}
+
+.social-icon {
+  width: 60px;   /* fixed size */
+  height: 60px;
+  object-fit: contain; /* keeps aspect ratio */
+  background-color: transparent;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px #ff3399; /* pink glow on hover */
+}
+
+
+/* Footer */
+footer {
+  background: none;
+  color: #ff3366; 
+  text-align: center;
+  padding: 20px;
+  font-size: 2.5rem;
+  font-family: bangers, Arial, sans-serif;
+  margin-top: 40px;
+  /* Glow effect */
+  text-shadow: 
+    0 0 5px yellow,
+    0 0 10px yellow,
+    0 0 20px yellow;    
+}
+
+footer strong {
+  font-weight: bold;
+  color: #ff3366;
+}
+
+/* Remove underline from links in footer */
+footer a {
+  text-decoration: none;
+  color: inherit; /* makes links same color as surrounding text */
+}
+
+footer a:hover {
+  text-decoration: none; /* no underline on hover */
+  color: #ff3366; /* optional: highlight links on hover */
+}
+
+/* Success page heading */
+.heading-font {
+  font-size: 3.2rem;        /* Adjust as needed */
+  font-weight: 800;
+  color: #ff0000;           /* Red text */
+  text-shadow: 0 0 10px #ffff00, 0 0 16px #ffff00; /* Yellow glow */
+  margin-bottom: 20px;
+  font-family: Bangers, 'Noto Sans JP', sans-serif;
+}
+
+
+/* Confirmation card */
+.package-card {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 0 12px #3399ff;
+}
+
+/* Text inside confirmation card */
+.package-card p {
+  font-size: 1.5rem; /* Adjust for readability */
+  color: #ffffff;
+  margin: 12px 0;
+  font-family: Verdana, Arial, 'Noto Sans JP', sans-serif;
+}
+
+/* Price and shipping lines */
+.package-card p:nth-of-type(6),
+.package-card p:nth-of-type(7) {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffff00;
+  text-shadow: 0 0 6px #00ccff;
+}
+
+/* Total line */
+.package-card p:nth-of-type(8) {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 0 0 8px #00ccff;
+  margin-top: 16px;
+}
+
+/* Timestamp line */
+.package-card p:nth-of-type(9) {
+  font-size: 1.5rem;
+  font-style: Verdana;
+  color: #cccccc;
+}
+
+/* Cancel button */
+.btn-danger {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff4444;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #ff3399;
+}
+
+/* Return to home button */
+.btn-return {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: #ff3399;
+  color: #fff;
+  box-shadow: 0 0 10px #00ccff;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-return:hover {
+  background-color: #4169e1;
+}
+
+/* Footer thank-you message */
+footer p {
+  font-size: 2rem;
+  color: black !important; /* black text */
+  margin-top: 30px;
+  font-family: 'Bangers', 'Noto Sans JP', sans-serif;
+  text-align: center;
+  /* Pink glow effect */
+  text-shadow: 
+    0 0 5px blue,
+    0 0 10px blue,
+    0 0 20px blue;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Optional: Customize pink button appearance */
+.btn-danger {
+  background-color: #ff3399;
+  color: Black;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #ff4444;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #4169e1;
+}
+
+/* Shared button style */
+.btn-sm {
+  font-size: 1.6rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;   /* stack links vertically */
+    align-items: center;
+  }
+  .nav-link {
+    margin: 8px 0;
+    font-size: 1rem;          /* slightly smaller text */
+  }
+  .logo {
+    max-height: 80px;        /* shrink logo a bit on mobile */
+  }
+  .section-spacer {
+    padding-top: 40px;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+  }
+
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+
